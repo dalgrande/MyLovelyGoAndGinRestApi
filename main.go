@@ -1,5 +1,4 @@
-//main.go
-package main
+package main //main.go
 
 import (
 	"api/config"
@@ -13,9 +12,9 @@ import (
 
 var err error
 
-// @title Swagger Example API
+// @title API de Planos de Faturamento
 // @version 1.0
-// @description This is a sample server Petstore server.
+// @description Uma api para gerenciamento de planos de faturamento.
 // @termsOfService http://swagger.io/terms/
 
 // @contact.name API Support
@@ -35,7 +34,10 @@ func main() {
 		fmt.Println("Status:", err)
 	}
 	defer config.DB.Close()
-	config.DB.AutoMigrate(&models.User{})
+	config.DB.LogMode(true)
+	
+	config.DB.AutoMigrate( &models.Products{}, &models.CyclePeriod{}, &models.CycleParam{})
+	
 	r := routes.SetupRouter()
 	//running
 	r.Run()

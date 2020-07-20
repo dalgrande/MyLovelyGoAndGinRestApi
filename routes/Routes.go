@@ -14,16 +14,15 @@ import (
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
 	v1 := r.Group("/api")
-
 	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json") // The url pointing to API definition
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	{
-		v1.GET("user", handlers.GetUsers)
-		v1.POST("user", handlers.CreateUser)
-		v1.GET("user/:id", handlers.GetUserByID)
-		v1.PUT("user/:id", handlers.UpdateUser)
-		v1.DELETE("user/:id", handlers.DeleteUser)
+		v1.GET("plan", handlers.GetProducts)
+		v1.POST("plan", handlers.CreateProducts)
+		v1.GET("plan/:id", handlers.GetProductsByID)
+		v1.PUT("plan/:id", handlers.UpdateProducts)
+		v1.DELETE("plan/:id", handlers.DeleteProducts)
 	}
 	return r
 }

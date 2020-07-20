@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: http://swagger.io/terms/
-  title: Swagger Example API
+  title: Gato mortal pra trás
   version: "1.0"
 paths:
   /file/upload:
@@ -40,5 +40,5 @@ paths:
           description: Can not find ID
           schema:
             type: string
-      summary: Upload file
+      summary: Gato mortal pra trás
 swagger: "2.0"

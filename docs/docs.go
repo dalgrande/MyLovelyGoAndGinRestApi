@@ -42,7 +42,7 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Upload file",
+                "summary": "Gato mortal pra trás",
                 "operationId": "file.upload",
                 "parameters": [
                     {
@@ -93,7 +93,7 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "localhost:8080",
 	BasePath:    "/api",
 	Schemes:     []string{},
-	Title:       "Swagger Example API",
+	Title:       "Gato mortal pra trás",
 	Description: "This is a sample server Petstore server.",
 }
 

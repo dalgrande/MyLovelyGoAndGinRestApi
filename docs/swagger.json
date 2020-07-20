@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "This is a sample server Petstore server.",
-        "title": "Swagger Example API",
+        "title": "Gato mortal pra trás",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
@@ -27,7 +27,7 @@
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Upload file",
+                "summary": "Gato mortal pra trás",
                 "operationId": "file.upload",
                 "parameters": [
                     {

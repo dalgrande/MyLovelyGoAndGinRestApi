@@ -21,7 +21,7 @@ type DBConfig struct {
 // BuildDBConfig Settings of DB
 func BuildDBConfig() *DBConfig {
 	dbConfig := DBConfig{
-		Host:     "db",
+		Host:     "localhost", //db for container
 		Port:     3306,
 		User:     "root",
 		Password: "MySql2020!",
@@ -33,7 +33,7 @@ func BuildDBConfig() *DBConfig {
 // DbURL Config
 func DbURL(dbConfig *DBConfig) string {
 	return fmt.Sprintf(
-		"%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local",
+		"%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		dbConfig.User,
 		dbConfig.Password,
 		dbConfig.Host,
