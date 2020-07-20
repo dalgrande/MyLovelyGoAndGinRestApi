@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//GetProductss ... Get all productss
+//GetProducts ... Get all products
 // Upload example
 // @Summary Gato mortal pra trás
 // @Description Upload file
@@ -22,7 +22,7 @@ import (
 // @Failure 404 {string} string "Can not find ID"
 // @Router /file/upload [post]
 func GetProducts(c *gin.Context) {
-	var products []models.Products
+	var products []models.Product
 	err := controllers.GetAllProducts(&products)
 	if err != nil {
 		c.AbortWithStatus(http.StatusNotFound)
@@ -33,7 +33,7 @@ func GetProducts(c *gin.Context) {
 
 //CreateProducts ... Create Products and save it on DB
 func CreateProducts(c *gin.Context) {
-	var products models.Products
+	var products models.Product
 	c.BindJSON(&products)
 	err := controllers.CreateProducts(&products)
 	if err != nil {
@@ -47,7 +47,7 @@ func CreateProducts(c *gin.Context) {
 //GetProductsByID ... Get the products by id
 func GetProductsByID(c *gin.Context) {
 	id := c.Params.ByName("id")
-	var products models.Products
+	var products models.Product
 	err := controllers.GetProductsByID(&products, id)
 	if err != nil {
 		c.AbortWithStatus(http.StatusNotFound)
@@ -58,7 +58,7 @@ func GetProductsByID(c *gin.Context) {
 
 //UpdateProducts ... Update the products information
 func UpdateProducts(c *gin.Context) {
-	var products models.Products
+	var products models.Product
 	id := c.Params.ByName("id")
 	err := controllers.GetProductsByID(&products, id)
 	if err != nil {
@@ -75,7 +75,7 @@ func UpdateProducts(c *gin.Context) {
 
 //DeleteProducts ... Delete the products
 func DeleteProducts(c *gin.Context) {
-	var products models.Products
+	var products models.Product
 	id := c.Params.ByName("id")
 	err := controllers.DeleteProducts(&products, id)
 	if err != nil {

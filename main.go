@@ -35,9 +35,14 @@ func main() {
 	}
 	defer config.DB.Close()
 	config.DB.LogMode(true)
-	
-	config.DB.AutoMigrate( &models.Products{}, &models.CyclePeriod{}, &models.CycleParam{})
-	
+	config.DB.AutoMigrate(&models.Product{}, &models.CyclePeriod{}, &models.CycleParam{})
+	// config.DB.Model(&models.Product{}).AddIndex("idx", "product_id")
+	// config.DB.Model(&models.CyclePeriod{}).AddIndex("idx", "cycle_period_id")
+	// config.DB.Model(&models.CycleParam{}).AddIndex("idx", "cycle_param_id")
+	// config.DB.Model(&models.Product{}).AddForeignKey("product_id", "cycle_periods(cycle_period_id)", "CASCADE", "CASCADE")
+	// config.DB.Model(&models.CyclePeriod{}).AddForeignKey("cycle_period_id", "cycle_params(cycle_param_id)", "CASCADE", "CASCADE")
+	// config.DB.Model(&models.CycleParam{}).AddForeignKey("cycle_param_id", "cycle_periods(cycle_period_id)", "CASCADE", "CASCADE")
+
 	r := routes.SetupRouter()
 	//running
 	r.Run()
